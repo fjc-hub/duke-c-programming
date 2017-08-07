@@ -1,0 +1,23 @@
+This problem is just for you to practice using
+the assignment submission system.
+
+(1) Create a file called "hello.txt"  (inside this directory, not quotes)
+(2) Write one line, which says "hello" (no quotes).
+(3) Add it to git
+  git add hello.txt
+(4) Commit it to git
+  git commit 
+(5) Push your commits to the remote repository (i.e., turn it in)
+  git push
+(6) Grade the assignment
+  grade 00_hello
+
+(7) Obtain the next assignment, and your detailed grade reports by pulling from git
+
+  git pull
+
+   You should get a file called "grade.txt" which will contain details about your score 
+   (there isn't much to say for this assignment).
+   You should also have another directory 01_ch01rq (cd ../01_ch01rq) which is your
+   reading quiz for chapter 1.  Now go do that assignment.
+
