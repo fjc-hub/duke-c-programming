@@ -36,6 +36,7 @@ end files with a newline]
     so you can read your feedback.  Don't forget that you can
     change back to this buffer with C-x b, and/or split the screen
     with C-x 2
+    When you are done, you can quit Emacs with C-x C-c.
 
 (7) Did something go wrong?  If so, fix it, and add/push/commit/grade
     again.  If everything went right, you should have your gotten
