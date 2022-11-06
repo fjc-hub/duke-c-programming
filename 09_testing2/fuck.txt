@@ -1,0 +1,5 @@
+issue 294
+/usr/local/l2p/match5/correct-match5 abbbb abbbb
+=> Both hands tie: each has four of a kind
+/usr/local/l2p/match5/match5-294 abbbb abbbb
+=> Both hands tie: each has three of a kind

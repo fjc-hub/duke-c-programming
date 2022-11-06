@@ -1,0 +1,43 @@
+aaaaa aaaaa
+aaaaa bbbbb
+bbbbb aaaaa
+!!!!! !!!!!
+~~~~~ !!!!!
+           
+aa@@a bbb@a
+###wx %%%hh
+WWWWW wwwww
+WWwwx wwwxx
+vvvvv VVVVV
+vvvll VVvvL
+ttt   ttttt
+ttt ttttt
+   xx brrrr
+qqqqq qqq
+qqqqq    qq
+11111 22222
+11110 00000
+22200 96969
+ababa uuyyi
+rtrtr ueyuy
+jjjjj attttt
+jjjjj atttttt
+jwtjj tabtct
+attttt jjjjj
+tabtct jwtxj
+12345666 12245
+ddddd ddddd ddddd
+djghk ddjgh dddjg
+aaaccc aabbcc aaabb
+77777
+a b 
+a b c
+
+ababa ababc
+\^-\\ 55441
+"abc" 12345
+12345 '897'
+
+abbbb abbbb
+aabbb acbbb
+bbbcc bbbca
