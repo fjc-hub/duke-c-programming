@@ -1,0 +1,94 @@
+Grading at Sun 06 Nov 2022 09:07:08 AM UTC
+Attempting to compile rectangle.c
+rectangle.c:21:1: error: unknown type name ‘rectangle’
+   21 | rectangle canonicalize(rectangle r) {
+      | ^~~~~~~~~
+rectangle.c:21:24: error: unknown type name ‘rectangle’
+   21 | rectangle canonicalize(rectangle r) {
+      |                        ^~~~~~~~~
+rectangle.c:25:1: error: unknown type name ‘rectangle’
+   25 | rectangle intersection(rectangle r1, rectangle r2) {
+      | ^~~~~~~~~
+rectangle.c:25:24: error: unknown type name ‘rectangle’
+   25 | rectangle intersection(rectangle r1, rectangle r2) {
+      |                        ^~~~~~~~~
+rectangle.c:25:38: error: unknown type name ‘rectangle’
+   25 | rectangle intersection(rectangle r1, rectangle r2) {
+      |                                      ^~~~~~~~~
+rectangle.c:31:21: error: unknown type name ‘rectangle’
+   31 | void printRectangle(rectangle r) {
+      |                     ^~~~~~~~~
+rectangle.c: In function ‘main’:
+rectangle.c:43:3: error: unknown type name ‘rectangle’
+   43 |   rectangle r1;
+      |   ^~~~~~~~~
+rectangle.c:44:3: error: unknown type name ‘rectangle’
+   44 |   rectangle r2;
+      |   ^~~~~~~~~
+rectangle.c:45:3: error: unknown type name ‘rectangle’
+   45 |   rectangle r3;
+      |   ^~~~~~~~~
+rectangle.c:46:3: error: unknown type name ‘rectangle’
+   46 |   rectangle r4;
+      |   ^~~~~~~~~
+rectangle.c:48:5: error: request for member ‘x’ in something not a structure or union
+   48 |   r1.x = 2;
+      |     ^
+rectangle.c:49:5: error: request for member ‘y’ in something not a structure or union
+   49 |   r1.y = 3;
+      |     ^
+rectangle.c:50:5: error: request for member ‘width’ in something not a structure or union
+   50 |   r1.width = 5;
+      |     ^
+rectangle.c:51:5: error: request for member ‘height’ in something not a structure or union
+   51 |   r1.height = 6;
+      |     ^
+rectangle.c:53:3: error: implicit declaration of function ‘printRectangle’ [-Werror=implicit-function-declaration]
+   53 |   printRectangle(r1);
+      |   ^~~~~~~~~~~~~~
+rectangle.c:55:5: error: request for member ‘x’ in something not a structure or union
+   55 |   r2.x = 4;
+      |     ^
+rectangle.c:56:5: error: request for member ‘y’ in something not a structure or union
+   56 |   r2.y = 5;
+      |     ^
+rectangle.c:57:5: error: request for member ‘width’ in something not a structure or union
+   57 |   r2.width = -5;
+      |     ^
+rectangle.c:58:5: error: request for member ‘height’ in something not a structure or union
+   58 |   r2.height = -7;
+      |     ^
+rectangle.c:62:5: error: request for member ‘x’ in something not a structure or union
+   62 |   r3.x = -2;
+      |     ^
+rectangle.c:63:5: error: request for member ‘y’ in something not a structure or union
+   63 |   r3.y = 7;
+      |     ^
+rectangle.c:64:5: error: request for member ‘width’ in something not a structure or union
+   64 |   r3.width = 7;
+      |     ^
+rectangle.c:65:5: error: request for member ‘height’ in something not a structure or union
+   65 |   r3.height = -10;
+      |     ^
+rectangle.c:69:5: error: request for member ‘x’ in something not a structure or union
+   69 |   r4.x = 0;
+      |     ^
+rectangle.c:70:5: error: request for member ‘y’ in something not a structure or union
+   70 |   r4.y = 7;
+      |     ^
+rectangle.c:71:5: error: request for member ‘width’ in something not a structure or union
+   71 |   r4.width = -4;
+      |     ^
+rectangle.c:72:5: error: request for member ‘height’ in something not a structure or union
+   72 |   r4.height = 2;
+      |     ^
+rectangle.c:77:3: error: unknown type name ‘rectangle’
+   77 |   rectangle i = intersection(r1,r1);
+      |   ^~~~~~~~~
+rectangle.c:77:17: error: implicit declaration of function ‘intersection’ [-Werror=implicit-function-declaration]
+   77 |   rectangle i = intersection(r1,r1);
+      |                 ^~~~~~~~~~~~
+cc1: all warnings being treated as errors
+The code did not compile!
+
+Overall Grade: F
