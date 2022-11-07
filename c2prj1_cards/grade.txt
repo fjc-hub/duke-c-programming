@@ -1,0 +1,6 @@
+Grading at Mon 07 Nov 2022 01:11:11 PM UTC
+Compiling cards.c
+Testing card_from_letters
+Failed
+
+Overall Grade: FAILED
