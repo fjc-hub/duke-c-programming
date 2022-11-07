@@ -117,9 +117,12 @@ card_t card_from_letters(char value_let, char suit_let) {
     break;
   case 'd':
     temp.suit = DIAMONDS;
+    break;
   case 'c':
     temp.suit = CLUBS;
+    break;
   default:
+    printf("%c\n", suit_let);
     assert(0); // fail fast
   }
   assert_card_valid(temp);
