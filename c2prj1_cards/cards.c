@@ -94,7 +94,7 @@ card_t card_from_letters(char value_let, char suit_let) {
   card_t temp;
   if ('2' <= value_let && value_let <= '9') {
     temp.value = value_let - '0';  
-  } else if (value_let == 'J') {
+  } else if (value_let == '0') {
     temp.value = 10;
   } else if (value_let == 'J') {
     temp.value = 11;
