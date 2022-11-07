@@ -1,6 +1,23 @@
-Grading at Mon 07 Nov 2022 01:27:59 PM UTC
+Grading at Mon 07 Nov 2022 01:32:24 PM UTC
 Compiling cards.c
 Testing card_from_letters
+Passed
+Testing value_letter and suit_letter
+Passed
+Testing print_card
+Passed
+Testing card_from_num
+Passed
+Testing ranking_to_string
+ranking_to_string(STRAIGHT_FLUSH) resulted in STRAIGHTFLUSH (Incorrect)
+ranking_to_string(FOUR_OF_A_KIND) resulted in FOUR OF A KIND (Incorrect)
+ranking_to_string(FULL_HOUSE) resulted in FULL HOUSE (Incorrect)
+ranking_to_string(FLUSH) resulted in FLUSH  (Correct)
+ranking_to_string(STRAIGHT) resulted in STRAIGHT  (Correct)
+ranking_to_string(THREE_OF_A_KIND) resulted in THREE OF A KIND (Incorrect)
+ranking_to_string(TWO_PAIR) resulted in TWO PAIR (Incorrect)
+ranking_to_string(PAIR) resulted in PAIR  (Correct)
+ranking_to_string(NOTHING) resulted in NOTHING  (Correct)
 Failed
 
 Overall Grade: FAILED
