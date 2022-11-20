@@ -1,0 +1,14 @@
+Grading at Sun 20 Nov 2022 03:18:25 PM UTC
+Compiling deck.c
+Compiling cards.c
+Linking cards.o deck.o deck-c4.o and the grader's .o file
+Checking the output of all the functions other than shuffle
+Your file matched the expected output
+ - Those functions seem to work!
+Checking your shuffle results with a 6 card hand...
+  Least common hand: 0.131050%
+  Most  common hand: 0.149300%
+  Perfectly even is: 0.138888%
+ Excellent!
+
+Overall Grade: A
