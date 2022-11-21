@@ -1,0 +1,12 @@
+gdb test-eval
+
+set args tests.txt  
+set args mytest.txt
+
+break is_n_length_straight_at
+break is_straight_at
+break copyToCards_n_cards_exclude
+break My_find2ndPair
+break build_hand_from_match
+
+start
