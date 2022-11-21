@@ -15,9 +15,9 @@ int card_ptr_comp(const void * vp1, const void * vp2) {
     return -1;
   }
   if ((*cp1)->suit < (*cp2)->suit) {
-    return -1;
+    return 1;
   }
-  return 1;
+  return -1;
 }
 
 suit_t flush_suit(deck_t * hand) {
