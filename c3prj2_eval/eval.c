@@ -115,6 +115,18 @@ int is_n_length_straight_at(deck_t * hand, size_t index, suit_t fs, int n) {
   return 0;
 }
 
+int is_ace_low_straight_at(deck_t * hand, size_t index, suit_t fs) {
+  // [index, hand->n_cards) interval must contains 2? 3? 4? 5?
+  int isExsit[4] = {0};
+  card_t ** cards = hand->cards;
+  for (int i=index; i < hand->n_cards; i++) {
+    int val = cards[i]->value;
+    if (((fs == NUM_SUITS || fs == cards[i]->suit)) && (2 <= val && val <= 5)) {
+      isExsit[val-2] = 1;
+    }
+  }
+  return isExsit[0] == 1 && isExsit[1] == 1 && isExsit[2] == 1 && isExsit[3] == 1;
+}
 
 int is_straight_at(deck_t * hand, size_t index, suit_t fs) {
   card_t ** cards = hand->cards;
@@ -126,7 +138,7 @@ int is_straight_at(deck_t * hand, size_t index, suit_t fs) {
   }
   if (cards[index]->value == 14 && 
     (fs == NUM_SUITS || fs == cards[index]->suit) &&
-    is_n_length_straight_at(hand, index+1, fs, 4) == 1) {
+    is_ace_low_straight_at(hand, index+1, fs) == 1) {
     return -1;
   }
   return 0;
