@@ -1,0 +1,49 @@
+Grading at Mon 21 Nov 2022 05:00:55 PM UTC
+Compiling your code
+rm -f test poker cards.o my-test-main.o *~
+cc -ggdb3 -Wall -Werror -pedantic -std=gnu99   -c -o deck.o deck.c
+cc -ggdb3 -Wall -Werror -pedantic -std=gnu99   -c -o eval.o eval.c
+cc -ggdb3 -Wall -Werror -pedantic -std=gnu99   -c -o cards.o cards.c
+gcc -o test-eval -ggdb3 deck.o deck-c4.o eval-c4.o eval.o test-eval.o cards.o input.o future.o
+Testcase 1: Trying hands with nothing
+ Checking the output 
+Your file matched the expected output
+ - Testcase passed
+Testcase 2: Trying hands with pairs
+ Checking the output 
+Your file matched the expected output
+ - Testcase passed
+Testcase 3: Trying hands with 2 pairs
+ Checking the output 
+Your file matched the expected output
+ - Testcase passed
+Testcase 4: Trying hands with 3 of a kind
+ Checking the output 
+Your file matched the expected output
+ - Testcase passed
+Testcase 5: Trying hands with straights
+ Checking the output 
+Your file matched the expected output
+ - Testcase passed
+Testcase 6: Trying hands with flushes
+ Checking the output 
+Your file matched the expected output
+ - Testcase passed
+Testcase 7: Trying hands with full houses
+ Checking the output 
+Your file matched the expected output
+ - Testcase passed
+Testcase 8: Trying hands with 4 of a kind
+ Checking the output 
+Your file matched the expected output
+ - Testcase passed
+Testcase 9: Trying hands with straight flushes
+ Checking the output 
+Your file matched the expected output
+ - Testcase passed
+Testcase 10: Trying each type of hand ranking
+ Checking the output 
+Your file matched the expected output
+ - Testcase passed
+
+Overall Grade: A
