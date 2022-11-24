@@ -31,7 +31,7 @@ int main(int argc, char ** argv) {
             maxFrq = cnt[idx];
         }
     }
-    printf("%d\n", (E - 'e') % 26);
+    printf("%d\n", (E - 'e' + 26) % 26); // % is remainder rather than modulo in C
 
     if (fclose(file) != 0) {
        fprintf(stderr, "Failed to close the input file!\n");
