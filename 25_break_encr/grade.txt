@@ -1,0 +1,15 @@
+Grading at Thu 24 Nov 2022 12:46:23 PM UTC
+Attempting to compile breaker.c 
+gcc -o breaker -std=gnu99 -Wall -Werror breaker.c
+testcase1 passed
+#################################################
+testcase2:
+valgrind reported memory errors or your program ran too long
+#################################################
+testcase3:
+valgrind reported memory errors or your program ran too long
+#################################################
+testcase4:
+valgrind reported memory errors or your program ran too long
+
+Overall Grade: F
