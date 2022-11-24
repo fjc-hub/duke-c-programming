@@ -1,15 +1,15 @@
-Grading at Thu 24 Nov 2022 01:02:07 PM UTC
+Grading at Thu 24 Nov 2022 01:10:00 PM UTC
 Attempting to compile breaker.c 
-gcc -o breaker -std=gnu99 -Wall -Werror breaker.c
+make: 'breaker' is up to date.
 testcase1 passed
 #################################################
 testcase2:
 testcase2 passed
 #################################################
 testcase3:
-testcase3 failed
+testcase3 passed
 #################################################
 testcase4:
 testcase4 passed
 
-Overall Grade: C
+Overall Grade: A
