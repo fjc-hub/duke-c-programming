@@ -7,14 +7,15 @@ int main(int argc, char ** argv) {
         fprintf(stderr, "argument number error\n");
         return EXIT_FAILURE;
     }
-    int cnt[26];
+    // Observe
+    int cnt[26] = {0};          // must initialize
     FILE* file = fopen(argv[1], "r+");
     if (file == NULL) {
         fprintf(stderr, "open file(%s) error\n", argv[1]);
         return EXIT_FAILURE;
     }
-    int ch;
-    int E = 0;
+    int ch = 0;                 // must initialize
+    int E = 0;                  // must initialize
     int maxFrq = 0;
     while ((ch = fgetc(file)) != EOF) {
         if ('A' <= ch && ch <= 'Z') {
