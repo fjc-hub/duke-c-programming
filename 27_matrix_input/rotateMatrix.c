@@ -53,6 +53,10 @@ int main(int argc, char ** argv) {
             return EXIT_FAILURE;
         }
         row++;
+        if (row > 10) {
+            fprintf(stderr, "long row error: %d\n", row);
+            return EXIT_FAILURE;
+        }
         int i = 0;
         if (ch == '\n') {
             fprintf(stderr,"short-line\n");
@@ -80,12 +84,15 @@ int main(int argc, char ** argv) {
         }
     }
     if (row != 10) {
-        fprintf(stderr, "row number error: %d\n", row);
+        fprintf(stderr, "less row error: %d\n", row);
         return EXIT_FAILURE;
     }
+
     // rotate
     rotate(matrix);
+
     // write out
+    // fputs()
     // for (int i = 0; i < 10; i++) {
     //     char buffer[11];
     //     for (int j = 0; j < 10; j++) {
@@ -97,6 +104,8 @@ int main(int argc, char ** argv) {
     //         return EXIT_FAILURE;
     //     }
     // }
+
+    // printf
     for (int x=0;x<10;x++){
         for (int y=0;y<10;y++){
 	        printf("%c",matrix[x][y]);
