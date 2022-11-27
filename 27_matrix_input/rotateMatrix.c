@@ -47,12 +47,20 @@ int main(int argc, char ** argv) {
     // read in and initialize matrix
     char matrix[10][10];
     int x = 0, y = 0, ch = 0, cnt = 0;
-    while ((ch = fgetc(in)) != EOF) {
+    while ((ch = fgetc(in)) != EOF || cnt < 100) {
         if (ch == -1 && errno < 0) {
             printf("system call fail in fgetc(in) library call\n");
             return EXIT_FAILURE;
         }
+        if (ch == ' ') {
+            printf("blank\n");
+            return EXIT_FAILURE;
+        }
         if (ch == '\n') {
+            if (cnt % 10 != 0) {
+                printf("short-line\n");
+                return EXIT_FAILURE;
+            }
             continue;
         }
         cnt++;
