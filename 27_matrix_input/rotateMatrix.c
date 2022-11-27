@@ -33,6 +33,9 @@ int main(int argc, char ** argv) {
             printf("system call fail in fgetc(in) library call");
             return EXIT_FAILURE;
         }
+        if (ch == '\n') {
+            continue;
+        }
         matrix[x][y] = ch;
         y++;
         if (y == 10) {
@@ -44,10 +47,11 @@ int main(int argc, char ** argv) {
     rotate(matrix);
     // write out
     for (int i = 0; i < 10; i++) {
-        char buffer[10];
+        char buffer[11];
         for (int j = 0; j < 10; j++) {
             buffer[j] = matrix[i][j];
         }
+        buffer[10] = '\n';
         if (fputs(buffer, out) == EOF) {  // The fputs() function returns EOF if an error occurs
             printf("fputs fail");
             return EXIT_FAILURE;
