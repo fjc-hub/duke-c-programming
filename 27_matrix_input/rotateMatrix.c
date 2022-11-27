@@ -2,7 +2,25 @@
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
-#include "rotate.h"
+
+void rotate(char matrix[10][10]) {
+    for (int i=0; i < 10; i++) {
+        for (int j=0; j < i; j++) {
+            int tmp = matrix[i][j];
+            matrix[i][j] = matrix[j][i];
+            matrix[j][i] = tmp;
+        }
+    }
+    for (int i=0; i < 10; i++) {
+        for (int j=0; j < 5; j++) {
+            int tmp = matrix[i][j];
+            matrix[i][j] = matrix[i][9-j];
+            matrix[i][9-j] = tmp;
+        }
+    }
+    return;
+}
+
 
 int main(int argc, char ** argv) {
     if (argc != 2) {
@@ -27,35 +45,82 @@ int main(int argc, char ** argv) {
     }
     // read in and initialize matrix
     char matrix[10][10];
-    int x = 0, y = 0, ch = 0;
+    int x = 0, y = 0, ch = 0, row = 0;
     while ((ch = fgetc(in)) != EOF) {
         if (ch == -1 && errno < 0) {
-            printf("system call fail in fgetc(in) library call");
+            fprintf(stderr, "system call fail in fgetc(in) library call\n");
             return EXIT_FAILURE;
         }
+        row++;
+        int i = 0;
         if (ch == '\n') {
-            continue;
+            fprintf(stderr,"short-line\n");
+            return EXIT_FAILURE;
         }
-        matrix[x][y] = ch;
-        y++;
-        if (y == 10) {
-            x++;
-            y = 0;
+        do {
+            if (x >= 10) {
+                // Observing array index out of range if you don't check 
+                // the value of row, after "row++" command
+                fprintf(stderr, "long row error: %d\n", row);
+                return EXIT_FAILURE;
+            }
+            matrix[x][y] = ch;
+            y++;
+            if (y == 10) {
+                x++;
+                y = 0;
+            }
+            // next
+            i++;
+            if ((ch = fgetc(in)) == '\n') {
+                if (i != 10) {
+                    fprintf(stderr,"short-line\n");
+                    return EXIT_FAILURE;
+                }
+            }
+        } while (i < 10);
+        if (ch != '\n') {
+            fprintf(stderr,"long-line\n");
+            return EXIT_FAILURE;
         }
     }
+    if (row != 10) {
+        fprintf(stderr, "file row error: %d\n", row);
+        return EXIT_FAILURE;
+    }
+
     // rotate
     rotate(matrix);
+
     // write out
-    for (int i = 0; i < 10; i++) {
-        char buffer[11];
-        for (int j = 0; j < 10; j++) {
-            buffer[j] = matrix[i][j];
+    // fputs()
+    // for (int i = 0; i < 10; i++) {
+    //     char buffer[11];
+    //     for (int j = 0; j < 10; j++) {
+    //         buffer[j] = matrix[i][j];
+    //     }
+    //     buffer[10] = '\n';
+    //     if (fputs(buffer, out) == EOF) {  // The fputs() function returns EOF if an error occurs
+    //         fprintf(stderr, "fputs fail\n");
+    //         return EXIT_FAILURE;
+    //     }
+    // }
+
+    // printf
+    for (int x=0;x<10;x++){
+        for (int y=0;y<10;y++){
+	        printf("%c",matrix[x][y]);
         }
-        buffer[10] = '\n';
-        if (fputs(buffer, out) == EOF) {  // The fputs() function returns EOF if an error occurs
-            printf("fputs fail");
-            return EXIT_FAILURE;
-        }
+        printf("\n");	
+	}
+    // resource release
+    if (fclose(in) != 0) {
+        perror("Failed to close the input file!");
+        return EXIT_FAILURE;  
+    }
+    if (fclose(out) != 0) {
+        perror("Failed to close the output file!");
+        return EXIT_FAILURE;  
     }
     return EXIT_SUCCESS;
 }
