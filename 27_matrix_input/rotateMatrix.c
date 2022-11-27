@@ -86,17 +86,23 @@ int main(int argc, char ** argv) {
     // rotate
     rotate(matrix);
     // write out
-    for (int i = 0; i < 10; i++) {
-        char buffer[11];
-        for (int j = 0; j < 10; j++) {
-            buffer[j] = matrix[i][j];
+    // for (int i = 0; i < 10; i++) {
+    //     char buffer[11];
+    //     for (int j = 0; j < 10; j++) {
+    //         buffer[j] = matrix[i][j];
+    //     }
+    //     buffer[10] = '\n';
+    //     if (fputs(buffer, out) == EOF) {  // The fputs() function returns EOF if an error occurs
+    //         fprintf(stderr, "fputs fail\n");
+    //         return EXIT_FAILURE;
+    //     }
+    // }
+    for (int x=0;x<10;x++){
+        for (int y=0;y<10;y++){
+	        printf("%c",matrix[x][y]);
         }
-        buffer[10] = '\n';
-        if (fputs(buffer, out) == EOF) {  // The fputs() function returns EOF if an error occurs
-            fprintf(stderr, "fputs fail\n");
-            return EXIT_FAILURE;
-        }
-    }
+        printf("\n");	
+	}
     // resource release
     if (fclose(in) != 0) {
         perror("Failed to close the input file!");
