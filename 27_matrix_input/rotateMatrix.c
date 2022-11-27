@@ -46,21 +46,26 @@ int main(int argc, char ** argv) {
     }
     // read in and initialize matrix
     char matrix[10][10];
-    int x = 0, y = 0, ch = 0;
+    int x = 0, y = 0, ch = 0, cnt = 0;
     while ((ch = fgetc(in)) != EOF) {
         if (ch == -1 && errno < 0) {
-            printf("system call fail in fgetc(in) library call");
+            printf("system call fail in fgetc(in) library call\n");
             return EXIT_FAILURE;
         }
         if (ch == '\n') {
             continue;
         }
+        cnt++;
         matrix[x][y] = ch;
         y++;
         if (y == 10) {
             x++;
             y = 0;
         }
+    }
+    if (cnt != 100) {
+        printf("number error: %d\n", cnt);
+        return EXIT_FAILURE;
     }
     // rotate
     rotate(matrix);
@@ -72,7 +77,7 @@ int main(int argc, char ** argv) {
         }
         buffer[10] = '\n';
         if (fputs(buffer, out) == EOF) {  // The fputs() function returns EOF if an error occurs
-            printf("fputs fail");
+            printf("fputs fail\n");
             return EXIT_FAILURE;
         }
     }
