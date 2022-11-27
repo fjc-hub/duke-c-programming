@@ -22,7 +22,6 @@ void rotate(char matrix[10][10]) {
 }
 
 
-
 int main(int argc, char ** argv) {
     if (argc != 2) {
         fprintf(stderr, "argument number error\n");
@@ -53,16 +52,18 @@ int main(int argc, char ** argv) {
             return EXIT_FAILURE;
         }
         row++;
-        if (row > 10) {
-            fprintf(stderr, "long row error: %d\n", row);
-            return EXIT_FAILURE;
-        }
         int i = 0;
         if (ch == '\n') {
             fprintf(stderr,"short-line\n");
             return EXIT_FAILURE;
         }
         do {
+            if (x >= 10) {
+                // Observing array index out of range if you don't check 
+                // the value of row, after "row++" command
+                fprintf(stderr, "long row error: %d\n", row);
+                return EXIT_FAILURE;
+            }
             matrix[x][y] = ch;
             y++;
             if (y == 10) {
@@ -84,7 +85,7 @@ int main(int argc, char ** argv) {
         }
     }
     if (row != 10) {
-        fprintf(stderr, "less row error: %d\n", row);
+        fprintf(stderr, "file row error: %d\n", row);
         return EXIT_FAILURE;
     }
 
