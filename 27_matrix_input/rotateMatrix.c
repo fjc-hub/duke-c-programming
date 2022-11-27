@@ -49,7 +49,7 @@ int main(int argc, char ** argv) {
     int x = 0, y = 0, ch = 0, row = 0;
     while ((ch = fgetc(in)) != EOF) {
         if (ch == -1 && errno < 0) {
-            printf("system call fail in fgetc(in) library call\n");
+            fprintf(stderr, "system call fail in fgetc(in) library call\n");
             return EXIT_FAILURE;
         }
         row++;
@@ -65,18 +65,18 @@ int main(int argc, char ** argv) {
             i++;
             if ((ch = fgetc(in)) == '\n') {
                 if (i != 10) {
-                    printf("short-line\n");
+                    fprintf(stderr,"short-line\n");
                     return EXIT_FAILURE;
                 }
             }
         } while (i < 10);
         if (ch != '\n') {
-            printf("long-line\n");
+            fprintf(stderr,"long-line\n");
             return EXIT_FAILURE;
         }
     }
     if (row != 10) {
-        printf("row number error: %d\n", row);
+        fprintf(stderr, "row number error: %d\n", row);
         return EXIT_FAILURE;
     }
     // rotate
@@ -89,7 +89,7 @@ int main(int argc, char ** argv) {
         }
         buffer[10] = '\n';
         if (fputs(buffer, out) == EOF) {  // The fputs() function returns EOF if an error occurs
-            printf("fputs fail\n");
+            fprintf(stderr, "fputs fail\n");
             return EXIT_FAILURE;
         }
     }
