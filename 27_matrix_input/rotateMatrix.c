@@ -54,6 +54,10 @@ int main(int argc, char ** argv) {
         }
         row++;
         int i = 0;
+        if (ch == '\n') {
+            fprintf(stderr,"short-line\n");
+            return EXIT_FAILURE;
+        }
         do {
             matrix[x][y] = ch;
             y++;
