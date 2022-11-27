@@ -1,4 +1,4 @@
-Grading at Sun 27 Nov 2022 12:12:01 PM UTC
+Grading at Sun 27 Nov 2022 12:18:22 PM UTC
 Attempting to compile rotateMatrix.c
 testcase1 passed
 #################################################
@@ -24,7 +24,7 @@ testcase6 passed
 #################################################
 testcase7: long-file.txt
  (should indicate an error)
-testcase7 passed
+testcase7 failed, your program didn't indicate this is a failure case
 #################################################
 testcase8: long-line-2.txt
  (should indicate an error)
@@ -35,20 +35,19 @@ testcase9: normal1.txt normal2.txt
 testcase9 passed
 #################################################
 testcase10: normal1.txt
-Your file did not match the expected ouput
-testcase10 failed, your output did not match with the answer
+Your file matched the expected output
+testcase10 passed
 #################################################
 testcase10: normal2.txt
-Your file did not match the expected ouput
-testcase10 failed, your output did not match with the answer
+Your file matched the expected output
+testcase10 passed
 #################################################
 testcase10: normal3.txt
-Your file did not match the expected ouput
-testcase10 failed, your output did not match with the answer
+Your file matched the expected output
+testcase10 passed
 #################################################
 testcase10: eof.txt
-Your file did not match the expected ouput
-testcase10 failed, your output did not match with the answer
- (Maybe you mishandled reading character 0xFF?)
+Your file matched the expected output
+testcase10 passed
 
-Overall Grade: F
+Overall Grade: B
