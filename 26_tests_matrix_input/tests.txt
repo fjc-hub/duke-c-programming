@@ -1,0 +1,10 @@
+inpyt7.txt
+input5.txt
+input1.txt
+input2.txt
+input3.txt
+
+input.tx
+2 input.txt
+input4.txt
+corrupted_text.txt
