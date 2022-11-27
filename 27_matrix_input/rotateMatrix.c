@@ -46,33 +46,37 @@ int main(int argc, char ** argv) {
     }
     // read in and initialize matrix
     char matrix[10][10];
-    int x = 0, y = 0, ch = 0, cnt = 0;
-    while ((ch = fgetc(in)) != EOF || cnt < 100) {
+    int x = 0, y = 0, ch = 0, row = 0;
+    while ((ch = fgetc(in)) != EOF) {
         if (ch == -1 && errno < 0) {
             printf("system call fail in fgetc(in) library call\n");
             return EXIT_FAILURE;
         }
-        if (ch == ' ') {
-            printf("blank\n");
+        row++;
+        int i = 0;
+        do {
+            matrix[x][y] = ch;
+            y++;
+            if (y == 10) {
+                x++;
+                y = 0;
+            }
+            // next
+            i++;
+            if ((ch = fgetc(in)) == '\n') {
+                if (i != 10) {
+                    printf("short-line\n");
+                    return EXIT_FAILURE;
+                }
+            }
+        } while (i < 10);
+        if (ch != '\n') {
+            printf("long-line\n");
             return EXIT_FAILURE;
         }
-        if (ch == '\n') {
-            if (cnt % 10 != 0) {
-                printf("short-line\n");
-                return EXIT_FAILURE;
-            }
-            continue;
-        }
-        cnt++;
-        matrix[x][y] = ch;
-        y++;
-        if (y == 10) {
-            x++;
-            y = 0;
-        }
     }
-    if (cnt != 100) {
-        printf("number error: %d\n", cnt);
+    if (row != 10) {
+        printf("row number error: %d\n", row);
         return EXIT_FAILURE;
     }
     // rotate
@@ -88,6 +92,15 @@ int main(int argc, char ** argv) {
             printf("fputs fail\n");
             return EXIT_FAILURE;
         }
+    }
+    // resource release
+    if (fclose(in) != 0) {
+        perror("Failed to close the input file!");
+        return EXIT_FAILURE;  
+    }
+    if (fclose(out) != 0) {
+        perror("Failed to close the output file!");
+        return EXIT_FAILURE;  
     }
     return EXIT_SUCCESS;
 }
