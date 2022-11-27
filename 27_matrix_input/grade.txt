@@ -1,4 +1,4 @@
-Grading at Sun 27 Nov 2022 11:18:59 AM UTC
+Grading at Sun 27 Nov 2022 11:51:26 AM UTC
 Attempting to compile rotateMatrix.c
 testcase1 passed
 #################################################
@@ -39,12 +39,10 @@ Your file did not match the expected ouput
 testcase10 failed, your output did not match with the answer
 #################################################
 testcase10: normal2.txt
-Line_1_did_not_match
 Your file did not match the expected ouput
 testcase10 failed, your output did not match with the answer
 #################################################
 testcase10: normal3.txt
-Line_1_did_not_match
 Your file did not match the expected ouput
 testcase10 failed, your output did not match with the answer
 #################################################
