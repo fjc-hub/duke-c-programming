@@ -1,4 +1,4 @@
-Grading at Sun 27 Nov 2022 11:51:26 AM UTC
+Grading at Sun 27 Nov 2022 12:01:12 PM UTC
 Attempting to compile rotateMatrix.c
 testcase1 passed
 #################################################
@@ -8,27 +8,27 @@ testcase2 passed
 #################################################
 testcase3: blank.txt
  (should indicate an error)
-testcase3 failed, your program didn't indicate this is a failure case
+testcase3 passed
 #################################################
 testcase4: short-line.txt
  (should indicate an error)
-testcase4 failed, your program didn't indicate this is a failure case
+testcase4 passed
 #################################################
 testcase5: short-file.txt
  (should indicate an error)
-testcase5 failed, your program didn't indicate this is a failure case
+testcase5 passed
 #################################################
 testcase6: long-line.txt
  (should indicate an error)
-testcase6 failed, your program didn't indicate this is a failure case
+testcase6 passed
 #################################################
 testcase7: long-file.txt
  (should indicate an error)
-testcase7 failed, your program didn't indicate this is a failure case
+testcase7 passed
 #################################################
 testcase8: long-line-2.txt
  (should indicate an error)
-testcase8 failed, your program didn't indicate this is a failure case
+testcase8 passed
 #################################################
 testcase9: normal1.txt normal2.txt
  (should indicate an error)
