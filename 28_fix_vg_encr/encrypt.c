@@ -24,6 +24,7 @@ void encrypt(FILE * f, int key, FILE * outfile){
     fprintf(outfile, "%s", line);
     free(line);
     line = NULL;
+    sz = 0;
   }
 }
 
