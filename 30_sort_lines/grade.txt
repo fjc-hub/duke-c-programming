@@ -1,32 +1,32 @@
-Grading at Tue 29 Nov 2022 04:39:11 PM UTC
+Grading at Tue 29 Nov 2022 04:41:23 PM UTC
 Attempting to compile sortLines.c
 #################################################
 testcase1:
 testcase1 passed, your program successfully indicated a failure
   - Valgrind showed memory leaks
 valgrind was not clean
-==575== Memcheck, a memory error detector
-==575== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==575== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==575== 
-==575== Parent PID: 574
-==575== 
-==575== 
-==575== HEAP SUMMARY:
-==575==     in use at exit: 472 bytes in 1 blocks
-==575==   total heap usage: 2 allocs, 1 frees, 944 bytes allocated
-==575== 
-==575== LEAK SUMMARY:
-==575==    definitely lost: 0 bytes in 0 blocks
-==575==    indirectly lost: 0 bytes in 0 blocks
-==575==      possibly lost: 0 bytes in 0 blocks
-==575==    still reachable: 472 bytes in 1 blocks
-==575==         suppressed: 0 bytes in 0 blocks
-==575== Reachable blocks (those to which a pointer was found) are not shown.
-==575== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==575== 
-==575== For lists of detected and suppressed errors, rerun with: -s
-==575== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==755== Memcheck, a memory error detector
+==755== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==755== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==755== 
+==755== Parent PID: 754
+==755== 
+==755== 
+==755== HEAP SUMMARY:
+==755==     in use at exit: 472 bytes in 1 blocks
+==755==   total heap usage: 2 allocs, 1 frees, 944 bytes allocated
+==755== 
+==755== LEAK SUMMARY:
+==755==    definitely lost: 0 bytes in 0 blocks
+==755==    indirectly lost: 0 bytes in 0 blocks
+==755==      possibly lost: 0 bytes in 0 blocks
+==755==    still reachable: 472 bytes in 1 blocks
+==755==         suppressed: 0 bytes in 0 blocks
+==755== Reachable blocks (those to which a pointer was found) are not shown.
+==755== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==755== 
+==755== For lists of detected and suppressed errors, rerun with: -s
+==755== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 #################################################
 testcase2:
 Your output is correct
