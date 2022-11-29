@@ -16,38 +16,18 @@ void sortData(char ** data, size_t count) {
   qsort(data, count, sizeof(char *), stringOrder);
 }
 
-int main(int argc, char ** argv) {
-  // open input stream
-  size_t stream_cnt = 0;
-  FILE * streams[argc - 1];
-  if (argc == 1) {
-    stream_cnt = 1;
-    streams[0] = stdin;
-  } else {
-    stream_cnt = argc - 1;
-    for (int i=1; i < argc; i++) {
-      FILE *file = fopen(argv[i], "r");
-      if (file == NULL) {
-        fprintf(stderr, "fopen %s error \n", argv[i]);
-        return EXIT_FAILURE;
-      }
-      streams[i-1] = file;
-    }
-  }
-  // read from stream into array
+int doWork(FILE *stream) {
   char **array = NULL;
   size_t arr_sz = 0;
   char *buffer = NULL;
   size_t buf_sz = 0;
   ssize_t len = 0;
-  for (int i=0; i < stream_cnt; i++) {
-    while ((len = getline(&buffer, &buf_sz, streams[i])) >= 0) {  // Observe &buffer
-      array = realloc(array, (arr_sz + 1) * sizeof(*array));
-      array[arr_sz] = malloc((len+1) * sizeof(char));
-      strncpy(array[arr_sz], buffer, len + 1); //  len exclude null byte
-      arr_sz++;
-      // printf("%ld, %ld\n", buf_sz, len);
-    }
+  while ((len = getline(&buffer, &buf_sz, stream)) >= 0) {  // Observe &buffer
+    array = realloc(array, (arr_sz + 1) * sizeof(*array));
+    array[arr_sz] = malloc((len+1) * sizeof(char));
+    strncpy(array[arr_sz], buffer, len + 1); //  len exclude null byte
+    arr_sz++;
+    // printf("%ld, %ld\n", buf_sz, len);
   }
   free(buffer);             // deallocate memory 1
   // sort and print
@@ -57,11 +37,28 @@ int main(int argc, char ** argv) {
     free(array[i]);         // deallocate memory 2
   }
   free(array);              // deallocate memory 3
+  return 0;
+}
 
-  // close input stream(except stdin)
-  if (argc > 1) {
-    for (int i=0; i < stream_cnt; i++) {
-      if (fclose(streams[i]) != 0) {
+int main(int argc, char ** argv) {
+  if (argc == 1) {
+    if (doWork(stdin) != 0) {
+      perror("error");
+      return EXIT_FAILURE;
+    }
+  } else {
+    for (int i=1; i < argc; i++) {
+      FILE *file = fopen(argv[i], "r");
+      if (file == NULL) {
+        fprintf(stderr, "fopen %s error \n", argv[i]);
+        return EXIT_FAILURE;
+      }
+      if (doWork(file) != 0) {
+        perror("error");
+        return EXIT_FAILURE;
+      }
+      // close input stream(except stdin)
+      if (fclose(file) != 0) {
         perror("Failed to close the input file!");
         return EXIT_FAILURE;
       }
