@@ -4,23 +4,25 @@
 #include <string.h>
 
 void encrypt(FILE * f, int key, FILE * outfile){
-  char * line;
-  size_t sz;
-  while (getline(&line,&sz, f) >= 0) {
+  char * line = NULL;
+  size_t sz = 0;
+  while (getline(&line, &sz, f) >= 0) {
     char * ptr = line;
-    while (*ptr != '\0') {
+    while (*ptr != '\n') {
       int c = *ptr;
       if (isalpha(c)) {
-	c = tolower(c);
-	c -= 'a';
-	c += key;
-	c %= 26;
-	c += 'a';
+        c = tolower(c);
+        c -= 'a';
+        c += key;
+        c %= 26;
+        c += 'a';
       }
       *ptr = c;
       ptr++;
     }
     fprintf(outfile, "%s", line);
+    free(line);
+    line = NULL;
   }
 }
 
@@ -41,10 +43,10 @@ int main(int argc, char ** argv) {
   }
   //outfileNAme is argv[2] + ".txt", so add 4 to its length.
   char * outFileName = malloc((strlen(argv[2]) + 4) * sizeof(*outFileName));
-  strcpy(outFileName, argv[2]);
-  strcat(outFileName, ".enc");
+  strcpy(outFileName, argv[2]);   // strcpy is a security concern of BUFFER OVERFLOW, when expose to a malicious user
+  strcat(outFileName, ".enc");    // strcat is a security concern of BUFFER OVERFLOW, when expose to a malicious user
   FILE * outFile = fopen(outFileName, "w");
-  encrypt(f,key, outFile);
+  encrypt(f, key, outFile);
   if (fclose(outFile) != 0) {
     perror("Failed to close the input file!");
     return EXIT_FAILURE;
@@ -56,3 +58,4 @@ int main(int argc, char ** argv) {
 
   return EXIT_SUCCESS;
 }
+
