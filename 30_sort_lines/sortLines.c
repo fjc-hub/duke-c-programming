@@ -40,7 +40,7 @@ int main(int argc, char ** argv) {
   char *buffer = NULL;
   size_t buf_sz = 0;
   for (int i=0; i < stream_cnt; i++) {
-    while (getline(&buffer, &buf_sz, streams[i]) > 0) {  // Observe &buffer
+    while (getline(&buffer, &buf_sz, streams[i]) >= 0) {  // Observe &buffer
       array = realloc(array, (arr_sz + 1) * sizeof(*array));
       array[arr_sz] = malloc(buf_sz * sizeof(*buffer));
       strncpy(array[arr_sz], buffer, buf_sz);
