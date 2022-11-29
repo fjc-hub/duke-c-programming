@@ -1,22 +1,28 @@
-Grading at Tue 29 Nov 2022 12:53:57 PM UTC
+Grading at Tue 29 Nov 2022 01:08:41 PM UTC
 Attempting to compile encrypt.c
 testcase1:
-valgrind reported memory errors
+your output was correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase2:
   - Valgrind was clean (no errors, no memory leaks)
 valgrind was clean
 #################################################
 testcase3:
-valgrind reported memory errors
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase4:
-valgrind reported memory errors
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase5:
-valgrind reported memory errors
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase6:
-valgrind reported memory errors
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 
-Overall Grade: F
+Overall Grade: A
