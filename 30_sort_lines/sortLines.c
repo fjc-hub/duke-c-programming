@@ -47,12 +47,15 @@ int main(int argc, char ** argv) {
       arr_sz++;
     }
   }
-  free(buffer);
+  free(buffer);             // deallocate memory 1
   // sort and print
   sortData(array, arr_sz);
   for (int i=0; i < arr_sz; i++) {
     printf("%s", array[i]);
+    free(array[i]);         // deallocate memory 2
   }
+  free(array);              // deallocate memory 3
+
   // close input stream(except stdin)
   if (argc > 1) {
     for (int i=0; i < stream_cnt; i++) {
@@ -62,11 +65,6 @@ int main(int argc, char ** argv) {
       }
     }
   }
-  // deallocate memory
-  for (int i=0; i < arr_sz; i++) {
-    free(array[i]);
-  }
-  free(array);
   return EXIT_SUCCESS;
 }
 
