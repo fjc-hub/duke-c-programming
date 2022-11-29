@@ -7,7 +7,7 @@ void encrypt(FILE * f, int key, FILE * outfile){
   char * line = NULL;
   size_t sz = 0;
   // the line read in may not contains a newline, rather than a EOF
-  while (getline(&line, &sz, f) >= 0) {
+  while (getline(&line, &sz, f) > 0) {
     char * ptr = line;
     while (*ptr != '\0') {
       int c = *ptr;
@@ -22,10 +22,9 @@ void encrypt(FILE * f, int key, FILE * outfile){
       ptr++;
     }
     fprintf(outfile, "%s", line);
-    free(line);
-    line = NULL;
-    sz = 0;
+    // free(line);  no need
   }
+  free(line);
 }
 
 int main(int argc, char ** argv) {
@@ -44,11 +43,12 @@ int main(int argc, char ** argv) {
     return EXIT_FAILURE;
   }
   //outfileNAme is argv[2] + ".txt", so add 4 to its length.
-  char * outFileName = malloc((strlen(argv[2]) + 4) * sizeof(*outFileName));
+  char * outFileName = malloc((strlen(argv[2]) + 5) * sizeof(*outFileName));
   strcpy(outFileName, argv[2]);   // strcpy is a security concern of BUFFER OVERFLOW, when expose to a malicious user
   strcat(outFileName, ".enc");    // strcat is a security concern of BUFFER OVERFLOW, when expose to a malicious user
   FILE * outFile = fopen(outFileName, "w");
   encrypt(f, key, outFile);
+  free(outFileName);
   if (fclose(outFile) != 0) {
     perror("Failed to close the input file!");
     return EXIT_FAILURE;
