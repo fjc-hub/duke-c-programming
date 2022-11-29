@@ -6,9 +6,10 @@
 void encrypt(FILE * f, int key, FILE * outfile){
   char * line = NULL;
   size_t sz = 0;
+  // the line read in may not contains a newline, rather than a EOF
   while (getline(&line, &sz, f) >= 0) {
     char * ptr = line;
-    while (*ptr != '\n' && *ptr != '\0') { // the line read in may not contains a newline, rather than a EOF
+    while (*ptr != '\0') {
       int c = *ptr;
       if (isalpha(c)) {
         c = tolower(c);
