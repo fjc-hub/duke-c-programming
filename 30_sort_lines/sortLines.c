@@ -39,12 +39,14 @@ int main(int argc, char ** argv) {
   size_t arr_sz = 0;
   char *buffer = NULL;
   size_t buf_sz = 0;
+  ssize_t len = 0;
   for (int i=0; i < stream_cnt; i++) {
-    while (getline(&buffer, &buf_sz, streams[i]) >= 0) {  // Observe &buffer
+    while ((len = getline(&buffer, &buf_sz, streams[i])) >= 0) {  // Observe &buffer
       array = realloc(array, (arr_sz + 1) * sizeof(*array));
-      array[arr_sz] = malloc(buf_sz * sizeof(*buffer));
-      strncpy(array[arr_sz], buffer, buf_sz);
+      array[arr_sz] = malloc((len+1) * sizeof(char));
+      strncpy(array[arr_sz], buffer, len + 1); //  len exclude null byte
       arr_sz++;
+      // printf("%ld, %ld\n", buf_sz, len);
     }
   }
   free(buffer);             // deallocate memory 1
