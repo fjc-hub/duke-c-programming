@@ -17,8 +17,56 @@ void sortData(char ** data, size_t count) {
 }
 
 int main(int argc, char ** argv) {
-  
-  //WRITE YOUR CODE HERE!
-  
+  // open input stream
+  size_t stream_cnt = 0;
+  FILE * streams[argc - 1];
+  if (argc == 1) {
+    stream_cnt = 1;
+    streams[0] = stdin;
+  } else {
+    stream_cnt = argc - 1;
+    for (int i=1; i < argc; i++) {
+      FILE *file = fopen(argv[i], "r");
+      if (file == NULL) {
+        fprintf(stderr, "fopen %s error \n", argv[i]);
+        return EXIT_FAILURE;
+      }
+      streams[i-1] = file;
+    }
+  }
+  // read from stream into array
+  char **array = NULL;
+  size_t arr_sz = 0;
+  char *buffer = NULL;
+  size_t buf_sz = 0;
+  for (int i=0; i < stream_cnt; i++) {
+    while (getline(&buffer, &buf_sz, streams[i]) > 0) {  // Observe &buffer
+      array = realloc(array, (arr_sz + 1) * sizeof(*array));
+      array[arr_sz] = malloc(buf_sz * sizeof(*buffer));
+      strncpy(array[arr_sz], buffer, buf_sz);
+      arr_sz++;
+    }
+  }
+  free(buffer);
+  // sort and print
+  sortData(array, arr_sz);
+  for (int i=0; i < arr_sz; i++) {
+    printf("%s", array[i]);
+  }
+  // close input stream(except stdin)
+  if (argc > 1) {
+    for (int i=0; i < stream_cnt; i++) {
+      if (fclose(streams[i]) != 0) {
+        perror("Failed to close the input file!");
+        return EXIT_FAILURE;
+      }
+    }
+  }
+  // deallocate memory
+  for (int i=0; i < arr_sz; i++) {
+    free(array[i]);
+  }
+  free(array);
   return EXIT_SUCCESS;
 }
+
