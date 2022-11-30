@@ -53,9 +53,12 @@ board_t * makeBoard(int w, int h, int numMines) {
       (bd->board)[i][j] = UNKNOWN;
     }
   }
-  addRandomMine(bd);
+  for(int i=0 ;i<numMines;i++) {
+    addRandomMine(bd);
+  }
   return bd;
 }
+
 void printBoard(board_t * b) {    
   int found = 0;
   printf("    ");
