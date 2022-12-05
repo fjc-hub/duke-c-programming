@@ -14,10 +14,10 @@ void addCount(counts_t * c, const char * name) {
   if (name == NULL) {
     name = "<unknown>";
   }
-  one_count_t * arr = c->Arr;
+  one_count_t * tmp = c->Arr;
   for (int i=c->Length-1; i >= 0; i--) { // Observe: c->Length must be signed number such as ssized_t
-    if (strcmp(name, arr[i].Str) == 0) { // Observe: strcmp can't permit pass NULL into it. 
-      arr[i].Cnt++;
+    if (strcmp(name, tmp[i].Str) == 0) { // Observe: strcmp can't permit pass NULL into it. 
+      tmp[i].Cnt++;
       return ;
     }
   }
@@ -26,9 +26,10 @@ void addCount(counts_t * c, const char * name) {
   counter->Str = malloc(strlen(name) + 1);
   strcpy(counter->Str, name);
   counter->Cnt = 1;
-  arr = realloc(arr, (c->Length+1)*sizeof(*arr));
-  arr[c->Length] = *counter;
-  c->Arr = arr;
+  tmp = realloc(tmp, (c->Length+1)*sizeof(*tmp));
+  tmp[c->Length] = *counter;
+  free(counter);  // OBSERVE
+  c->Arr = tmp;
   c->Length++;
   return ;
 }
