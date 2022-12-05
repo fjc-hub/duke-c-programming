@@ -8,7 +8,7 @@
 // 2.fast fail if read a '\0' before delim
 // 3.for security in avoiding 'read out of range of buffer', 
 //   res must be a valid string, namely end up with '\0'
-char * dynamicStrcpyUntil(char * res, size_t *start, char delim) {
+char * dynamicStrcpyUntil(const char * res, size_t *start, char delim) {
   int i = *start;
   size_t sz = 0;
   char * str = NULL;
@@ -36,9 +36,9 @@ kvarray_t * readKVs(const char * fname) {
     exit(-1);
   }
   // malloc and initialize
-  kvarray_t * arr = malloc(sizeof(*arr));
-  arr->Arr = NULL;
-  arr->Length = 0;
+  kvarray_t * kvs = malloc(sizeof(*kvs));
+  kvs->Arr = NULL;
+  kvs->Length = 0;
   // read in and assign and dynamic expansion
   char * buf = NULL;
   size_t sz = 0;
@@ -54,17 +54,17 @@ kvarray_t * readKVs(const char * fname) {
     kvpair_t * pair = malloc(sizeof(*pair));
     pair->Key = key;
     pair->Value = value;
-    int len = arr->Length;
-    arr->Arr = realloc(arr->Arr, (len + 1)*sizeof(*(arr->Arr)));
-    arr->Arr[len] = pair;
-    arr->Length++;
+    int len = kvs->Length;
+    kvs->Arr = realloc(kvs->Arr, (len + 1)*sizeof(*(kvs->Arr)));
+    kvs->Arr[len] = pair;
+    kvs->Length++;
   }
   free(buf);
   if (fclose(file) != 0) {
     fprintf(stderr, "Failed to close the input file(%s)!\n", fname);
     return NULL;
   }
-  return arr;
+  return kvs;
 }
 
 void freeKVs(kvarray_t * pairs) {
