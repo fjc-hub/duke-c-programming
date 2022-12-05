@@ -10,7 +10,7 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
   FILE *f = fopen(filename, "r");
   if (f == NULL) {
     perror("open file error in countFile\n");
-    exit(-1);
+    return NULL;
   }
   size_t sz = 0;
   char *buf = NULL;
@@ -27,14 +27,14 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
   free(buf);
   if (fclose(f) != 0) {
     perror("close file error in countFile\n");
-    exit(-1);
+    return NULL;
   }
   return ans;
 }
 
 int main(int argc, char ** argv) {
-  if (argc < 3) {
-    perror("argc must >= 3");
+  if(argc < 2){
+    fprintf(stderr,"no enough arguments");
     return EXIT_FAILURE;
   }
   //read the key/value pairs from the file named by argv[1]
@@ -42,7 +42,11 @@ int main(int argc, char ** argv) {
   for (int i=2; i < argc; i++) {
     //count the values that appear in the file named by argv[i]
     counts_t *c = countFile(argv[i], kv);
-    //compute the output file name from argv[i] (call this outName)
+    if(c == NULL) {
+      return EXIT_FAILURE;
+    }
+    
+    //compute the output file name from argv[i]
     char *outName = computeOutputFileName(argv[i]);
     //open the file named by outName (call that f)
     FILE *f = fopen(outName, "w+");
@@ -61,7 +65,6 @@ int main(int argc, char ** argv) {
     free(outName);
     freeCounts(c);
   }
-  free(kv);
+  freeKVs(kv);
   return EXIT_SUCCESS;
 }
-
