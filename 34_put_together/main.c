@@ -7,7 +7,7 @@
 
 counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
   counts_t *ans = createCounts();
-  FILE *f = fopen(filename, "w+");
+  FILE *f = fopen(filename, "r");
   if (f == NULL) {
     perror("open file error in countFile\n");
     exit(-1);
@@ -15,7 +15,14 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
   size_t sz = 0;
   char *buf = NULL;
   for (; getline(&buf, &sz, f) >= 0; ) {
-    addCount(ans, buf);
+    // Observe: remmove '\n' in buf
+    char *t = strchr(buf, '\n');
+    if (t != NULL) {
+      *t = '\0';
+    }
+    char *v = lookupValue(kvPairs, buf);
+    addCount(ans, v);
+    // free(v);
   }
   free(buf);
   if (fclose(f) != 0) {
