@@ -1,4 +1,4 @@
-Grading at Mon 05 Dec 2022 12:36:22 PM UTC
+Grading at Mon 05 Dec 2022 03:48:41 PM UTC
 Attempting to compile:
 rm -f  outname.o  counts.o  main.o  kv.o count_values *~
 gcc -c -Wall -Werror -std=gnu99 -pedantic -ggdb3 outname.c
@@ -19,33 +19,8 @@ Your output is correct
 Comparing file list1b.txt.counts with answer
 Your file matched the expected output
 Your output is correct
-  - Valgrind reported errors
-valgrind was not clean
-==479== Memcheck, a memory error detector
-==479== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==479== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==479== 
-==479== Parent PID: 478
-==479== 
-==479== 
-==479== HEAP SUMMARY:
-==479==     in use at exit: 790 bytes in 64 blocks
-==479==   total heap usage: 379 allocs, 315 frees, 9,584 bytes allocated
-==479== 
-==479== 790 (168 direct, 622 indirect) bytes in 1 blocks are definitely lost in loss record 4 of 4
-==479==    at 0x483DFAF: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==479==    by 0x109B9F: readKVs (kv.c:58)
-==479==    by 0x109808: main (main.c:41)
-==479== 
-==479== LEAK SUMMARY:
-==479==    definitely lost: 168 bytes in 1 blocks
-==479==    indirectly lost: 622 bytes in 63 blocks
-==479==      possibly lost: 0 bytes in 0 blocks
-==479==    still reachable: 0 bytes in 0 blocks
-==479==         suppressed: 0 bytes in 0 blocks
-==479== 
-==479== For lists of detected and suppressed errors, rerun with: -s
-==479== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase3:
 Your file matched the expected output
@@ -57,64 +32,14 @@ Your output is correct
 Comparing file list2c.txt.counts with answer
 Your file matched the expected output
 Your output is correct
-  - Valgrind reported errors
-valgrind was not clean
-==491== Memcheck, a memory error detector
-==491== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==491== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==491== 
-==491== Parent PID: 490
-==491== 
-==491== 
-==491== HEAP SUMMARY:
-==491==     in use at exit: 552 bytes in 37 blocks
-==491==   total heap usage: 352 allocs, 315 frees, 10,961 bytes allocated
-==491== 
-==491== 552 (96 direct, 456 indirect) bytes in 1 blocks are definitely lost in loss record 4 of 4
-==491==    at 0x483DFAF: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==491==    by 0x109B9F: readKVs (kv.c:58)
-==491==    by 0x109808: main (main.c:41)
-==491== 
-==491== LEAK SUMMARY:
-==491==    definitely lost: 96 bytes in 1 blocks
-==491==    indirectly lost: 456 bytes in 36 blocks
-==491==      possibly lost: 0 bytes in 0 blocks
-==491==    still reachable: 0 bytes in 0 blocks
-==491==         suppressed: 0 bytes in 0 blocks
-==491== 
-==491== For lists of detected and suppressed errors, rerun with: -s
-==491== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase4:
 Your file matched the expected output
 Comparing file list3a.txt.counts with answer
 Your output is correct
-  - Valgrind reported errors
-valgrind was not clean
-==504== Memcheck, a memory error detector
-==504== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==504== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==504== 
-==504== Parent PID: 503
-==504== 
-==504== 
-==504== HEAP SUMMARY:
-==504==     in use at exit: 20,832 bytes in 25 blocks
-==504==   total heap usage: 20,687 allocs, 20,662 frees, 100,150,439 bytes allocated
-==504== 
-==504== 20,832 (64 direct, 20,768 indirect) bytes in 1 blocks are definitely lost in loss record 4 of 4
-==504==    at 0x483DFAF: realloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
-==504==    by 0x109B9F: readKVs (kv.c:58)
-==504==    by 0x109808: main (main.c:41)
-==504== 
-==504== LEAK SUMMARY:
-==504==    definitely lost: 64 bytes in 1 blocks
-==504==    indirectly lost: 20,768 bytes in 24 blocks
-==504==      possibly lost: 0 bytes in 0 blocks
-==504==    still reachable: 0 bytes in 0 blocks
-==504==         suppressed: 0 bytes in 0 blocks
-==504== 
-==504== For lists of detected and suppressed errors, rerun with: -s
-==504== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 
-Overall Grade: B
+Overall Grade: A
