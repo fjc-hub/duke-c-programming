@@ -33,8 +33,8 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
 }
 
 int main(int argc, char ** argv) {
-  if(argc < 2){
-    fprintf(stderr,"no enough arguments");
+  if (argc < 3) {
+    perror("argc must >= 3");
     return EXIT_FAILURE;
   }
   //read the key/value pairs from the file named by argv[1]
