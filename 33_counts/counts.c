@@ -7,12 +7,14 @@ counts_t * createCounts(void) {
   counts_t *ans = malloc(sizeof(*ans));
   ans->Arr = NULL;
   ans->Length = 0;
+  ans->unknown = 0;
   return ans;
 }
 
 void addCount(counts_t * c, const char * name) {
   if (name == NULL) {
-    name = "<unknown>";
+    c->unknown++;
+    return ;
   }
   one_count_t * tmp = c->Arr;
   for (int i=c->Length-1; i >= 0; i--) { // Observe: c->Length must be signed number such as ssized_t
@@ -37,13 +39,10 @@ void addCount(counts_t * c, const char * name) {
 void printCounts(counts_t * c, FILE * outFile) {
   for (int i=0, l=c->Length; i < l; i++) {
     one_count_t counter = c->Arr[i];
-    if (!strcmp(counter.Str, "<unknown>")) {
-      if (counter.Cnt > 0) {
-        fprintf(outFile, "<unknown> : %ld\n", counter.Cnt);
-      }
-    } else {
-      fprintf(outFile, "%s: %ld\n", counter.Str, counter.Cnt);
-    }
+    fprintf(outFile, "%s: %ld\n", counter.Str, counter.Cnt);
+  }
+  if (c->unknown > 0) {
+    fprintf(outFile, "<unknown> : %ld\n", c->unknown);
   }
 }
 
@@ -55,4 +54,5 @@ void freeCounts(counts_t * c) {
   free(c->Arr);
   free(c);
 }
+
 
