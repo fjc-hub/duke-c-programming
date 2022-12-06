@@ -1,0 +1,30 @@
+Grading at Tue 06 Dec 2022 09:34:15 AM UTC
+Compiling cards.c -> cards.o
+Compiling deck.c -> deck.o
+Compiling input.c -> input.o
+input.c: In function ‘hand_from_string’:
+input.c:10:23: error: implicit declaration of function ‘strlen’ [-Werror=implicit-function-declaration]
+   10 |     for (int i=0, len=strlen(str); i < len; cnt++) {
+      |                       ^~~~~~
+input.c:10:23: error: incompatible implicit declaration of built-in function ‘strlen’ [-Werror]
+input.c:4:1: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+    3 | #include "input.h"
+  +++ |+#include <string.h>
+    4 | 
+input.c:10:5: error: declaration of non-variable ‘strlen’ in ‘for’ loop initial declaration
+   10 |     for (int i=0, len=strlen(str); i < len; cnt++) {
+      |     ^~~
+input.c:14:9: error: implicit declaration of function ‘assert’ [-Werror=implicit-function-declaration]
+   14 |         assert(i+1 < len);
+      |         ^~~~~~
+input.c:4:1: note: ‘assert’ is defined in header ‘<assert.h>’; did you forget to ‘#include <assert.h>’?
+    3 | #include "input.h"
+  +++ |+#include <assert.h>
+    4 | 
+input.c:18:20: error: implicit declaration of function ‘isdigit’ [-Werror=implicit-function-declaration]
+   18 |             assert(isdigit(s));
+      |                    ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation of input.c failed
+
+Overall Grade: F
