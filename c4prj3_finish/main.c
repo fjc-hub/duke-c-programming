@@ -83,8 +83,10 @@ int main(int argc, char ** argv) {
   }
   free(decks);
   free_deck(remain);
-  for(int o=fc->n_decks-1 ;o>=0;o--){
-    if(fc->decks[o].n_cards != 0) free(fc->decks[o].cards);
+  for(int o=fc->n_decks-1; o >= 0; o--){
+    if(fc->decks[o].n_cards != 0) { // Observe: avoid operating on NULL pointer
+      free(fc->decks[o].cards);
+    }
   }
   free(fc->decks);
   free(fc);
