@@ -29,7 +29,7 @@ void future_cards_from_deck(deck_t * deck, future_cards_t * fc) {
         if (fc->decks[i].n_cards == 0) {
             continue;
         }
-        for (int j=0; j < l; i++) {
+        for (int j=0; j < l; j++) {
             t[j]->value = deck->cards[i]->value;
             t[j]->suit = deck->cards[i]->suit;
         }
