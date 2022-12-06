@@ -25,7 +25,7 @@ int main(int argc, char ** argv) {
   }
   deck_t **decks = read_input(f, &n_hands, fc);
   deck_t *remain = build_remaining_deck(decks, n_hands);
-  size_t num_trials = 10000;
+  unsigned num_trials = 10000;
   if (argc == 3) {
     num_trials = atoi(argv[2]);
   }
@@ -70,7 +70,7 @@ int main(int argc, char ** argv) {
     }
   }
   // print
-  for (int i=0; i < n_hands; i++) {
+  for (size_t i=0; i < n_hands; i++) {
     printf("Hand %zu won %u / %u times (%.2f%%)\n", i, winCnts[i], num_trials, (((float)winCnts[i])/num_trials)*100);
   }
   printf("And there were %u ties\n", winCnts[n_hands]);
