@@ -1,4 +1,4 @@
-Grading at Tue 06 Dec 2022 07:17:42 AM UTC
+Grading at Tue 06 Dec 2022 07:26:29 AM UTC
 Compiling deck.c -> deck.o
 Compiling eval.c -> eval.o
 Compiling cards.c -> cards.o
@@ -95,51 +95,51 @@ In this hand: Ac Ad Ah As Kc Kd Ks Qd Qh Qs 0d 0s 9c 9h 9s 7h 7s 6h 4d
   I expected the 2'th match count to be 4 but you got 23
   I expected the 3'th match count to be 4 but you got 23
 Valgrind reported errors:
-==746== Memcheck, a memory error detector
-==746== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==746== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==746== Command: ./tester gmc
-==746== Parent PID: 745
-==746== 
-==746== Conditional jump or move depends on uninitialised value(s)
-==746==    at 0x10CE20: check_get_match_count (in /graderhome/work/c4prj1_deck/tester)
-==746==    by 0x10D0C9: main (in /graderhome/work/c4prj1_deck/tester)
-==746== 
-==746== Use of uninitialised value of size 8
-==746==    at 0x48AE81B: _itoa_word (_itoa.c:179)
-==746==    by 0x48CA6F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==746==    by 0x48B4EBE: printf (printf.c:33)
-==746==    by 0x10CEB3: check_get_match_count (in /graderhome/work/c4prj1_deck/tester)
-==746==    by 0x10D0C9: main (in /graderhome/work/c4prj1_deck/tester)
-==746== 
-==746== Conditional jump or move depends on uninitialised value(s)
-==746==    at 0x48AE82D: _itoa_word (_itoa.c:179)
-==746==    by 0x48CA6F4: __vfprintf_internal (vfprintf-internal.c:1687)
-==746==    by 0x48B4EBE: printf (printf.c:33)
-==746==    by 0x10CEB3: check_get_match_count (in /graderhome/work/c4prj1_deck/tester)
-==746==    by 0x10D0C9: main (in /graderhome/work/c4prj1_deck/tester)
-==746== 
-==746== Conditional jump or move depends on uninitialised value(s)
-==746==    at 0x48CB3A8: __vfprintf_internal (vfprintf-internal.c:1687)
-==746==    by 0x48B4EBE: printf (printf.c:33)
-==746==    by 0x10CEB3: check_get_match_count (in /graderhome/work/c4prj1_deck/tester)
-==746==    by 0x10D0C9: main (in /graderhome/work/c4prj1_deck/tester)
-==746== 
-==746== Conditional jump or move depends on uninitialised value(s)
-==746==    at 0x48CA86E: __vfprintf_internal (vfprintf-internal.c:1687)
-==746==    by 0x48B4EBE: printf (printf.c:33)
-==746==    by 0x10CEB3: check_get_match_count (in /graderhome/work/c4prj1_deck/tester)
-==746==    by 0x10D0C9: main (in /graderhome/work/c4prj1_deck/tester)
-==746== 
-==746== 
-==746== HEAP SUMMARY:
-==746==     in use at exit: 0 bytes in 0 blocks
-==746==   total heap usage: 117 allocs, 117 frees, 5,920 bytes allocated
-==746== 
-==746== All heap blocks were freed -- no leaks are possible
-==746== 
-==746== Use --track-origins=yes to see where uninitialised values come from
-==746== For lists of detected and suppressed errors, rerun with: -s
-==746== ERROR SUMMARY: 359 errors from 5 contexts (suppressed: 0 from 0)
+==878== Memcheck, a memory error detector
+==878== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==878== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==878== Command: ./tester gmc
+==878== Parent PID: 877
+==878== 
+==878== Conditional jump or move depends on uninitialised value(s)
+==878==    at 0x10CE39: check_get_match_count (in /graderhome/work/c4prj1_deck/tester)
+==878==    by 0x10D0E2: main (in /graderhome/work/c4prj1_deck/tester)
+==878== 
+==878== Use of uninitialised value of size 8
+==878==    at 0x48AE81B: _itoa_word (_itoa.c:179)
+==878==    by 0x48CA6F4: __vfprintf_internal (vfprintf-internal.c:1687)
+==878==    by 0x48B4EBE: printf (printf.c:33)
+==878==    by 0x10CECC: check_get_match_count (in /graderhome/work/c4prj1_deck/tester)
+==878==    by 0x10D0E2: main (in /graderhome/work/c4prj1_deck/tester)
+==878== 
+==878== Conditional jump or move depends on uninitialised value(s)
+==878==    at 0x48AE82D: _itoa_word (_itoa.c:179)
+==878==    by 0x48CA6F4: __vfprintf_internal (vfprintf-internal.c:1687)
+==878==    by 0x48B4EBE: printf (printf.c:33)
+==878==    by 0x10CECC: check_get_match_count (in /graderhome/work/c4prj1_deck/tester)
+==878==    by 0x10D0E2: main (in /graderhome/work/c4prj1_deck/tester)
+==878== 
+==878== Conditional jump or move depends on uninitialised value(s)
+==878==    at 0x48CB3A8: __vfprintf_internal (vfprintf-internal.c:1687)
+==878==    by 0x48B4EBE: printf (printf.c:33)
+==878==    by 0x10CECC: check_get_match_count (in /graderhome/work/c4prj1_deck/tester)
+==878==    by 0x10D0E2: main (in /graderhome/work/c4prj1_deck/tester)
+==878== 
+==878== Conditional jump or move depends on uninitialised value(s)
+==878==    at 0x48CA86E: __vfprintf_internal (vfprintf-internal.c:1687)
+==878==    by 0x48B4EBE: printf (printf.c:33)
+==878==    by 0x10CECC: check_get_match_count (in /graderhome/work/c4prj1_deck/tester)
+==878==    by 0x10D0E2: main (in /graderhome/work/c4prj1_deck/tester)
+==878== 
+==878== 
+==878== HEAP SUMMARY:
+==878==     in use at exit: 0 bytes in 0 blocks
+==878==   total heap usage: 117 allocs, 117 frees, 5,920 bytes allocated
+==878== 
+==878== All heap blocks were freed -- no leaks are possible
+==878== 
+==878== Use --track-origins=yes to see where uninitialised values come from
+==878== For lists of detected and suppressed errors, rerun with: -s
+==878== ERROR SUMMARY: 359 errors from 5 contexts (suppressed: 0 from 0)
 
 Overall Grade: B
