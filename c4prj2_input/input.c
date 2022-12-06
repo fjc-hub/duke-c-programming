@@ -1,8 +1,5 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
-#include <assert.h>
-#include <ctype.h>
 #include "input.h"
 
 deck_t * hand_from_string(const char * str, future_cards_t * fc) {
@@ -12,6 +9,7 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc) {
     ans->n_cards = 0;
     for (int i=0, len=strlen(str); i < len; cnt++) {
         if (str[i] == ' ') {
+            i++;
             continue;
         }
         assert(i+1 < len);
@@ -39,16 +37,17 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc) {
 }
 
 deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc) {
-    *n_hands = 0;
+    int n = 0;
     deck_t **ans = NULL;
     size_t sz = 0;
     char * buf = NULL;
     for (; getline(&buf, &sz, f) >= 0; ) {
         deck_t *deck = hand_from_string(buf, fc);
-        ans = realloc(ans, (*n_hands+1)*sizeof(*ans));
-        ans[*n_hands] = deck;
-        *n_hands = *n_hands + 1;
+        ans = realloc(ans, (n+1)*sizeof(*ans));
+        ans[n] = deck;
+        n++;
     }
+    *n_hands = n;
     free(buf);
     return ans;
 }
