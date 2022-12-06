@@ -29,7 +29,7 @@ int main(int argc, char ** argv) {
   if (argc ==3) {
     num_trials = atoi(argv[2]);
   }
-  unsigned winCnts[n_hands+1];
+  int winCnts[n_hands+1];
   for (int i=0; i <= n_hands; i++) {
     winCnts[i] = 0;
   }
@@ -47,8 +47,7 @@ int main(int argc, char ** argv) {
         int cmp = compare_hands(decks[i], decks[j]);
         if(cmp > 0) {
           cnts[i]++;
-        }
-        else if (cmp < 0) {
+        } else if (cmp < 0) {
           cnts[j]++;
         } 
       }
@@ -71,7 +70,7 @@ int main(int argc, char ** argv) {
   }
   // print
   for (size_t i=0; i < n_hands; i++) {
-    printf("Hand %zu won %u / %u times (%.2f%%)\n", i, winCnts[i], num_trials, (((double)winCnts[i])/num_trials)*100);
+    printf("Hand %zu won %u / %u times (%.2f%%)\n", i, winCnts[i], num_trials, (((float)winCnts[i])/num_trials)*100);
   }
   printf("And there were %u ties\n", winCnts[n_hands]);
   // release
