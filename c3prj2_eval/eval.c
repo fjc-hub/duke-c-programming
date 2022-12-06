@@ -30,12 +30,11 @@ suit_t flush_suit(deck_t * hand) {
   for (size_t i=0 ;i< (hand ->n_cards);i++){
     card1 = **(card +i);
     switch(card1.suit){
-    case SPADES : {s++;  break;}
-    case HEARTS : { h++;  break;}
-    case DIAMONDS :{ d++ ;  break;}
-    case CLUBS :{c++ ; break;}
-    case NUM_SUITS: break;
-
+      case SPADES : {s++;  break;}
+      case HEARTS : { h++;  break;}
+      case DIAMONDS :{ d++ ;  break;}
+      case CLUBS :{c++ ; break;}
+      case NUM_SUITS: break;
     }
   }
 
@@ -46,19 +45,6 @@ suit_t flush_suit(deck_t * hand) {
   return NUM_SUITS;
 
 }
-
-// suit_t flush_suit(deck_t * hand) {
-//   printf("flush_suit\n");
-//   int cnt[4] = {0};
-//   for (int i=0; i < hand->n_cards; i++) {
-//     unsigned t = (hand->cards)[i]->value;
-//     cnt[t]++;
-//     if (cnt[t] == 5) {
-//       return t;
-//     }
-//   }
-//   return NUM_SUITS;
-// }
 
 unsigned get_largest_element(unsigned * arr, size_t n) {
   unsigned ans= arr[0];
@@ -283,7 +269,18 @@ int compare_hands(deck_t * hand1, deck_t * hand2) {
 //implementation in eval-c4.o) so that the
 //other functions we have provided can make
 //use of get_match_counts.
-unsigned * get_match_counts(deck_t * hand) ;
+unsigned * get_match_counts(deck_t * hand) {
+  size_t n = hand->n_cards;
+  unsigned *ans = malloc(n*sizeof(*ans));
+  size_t cnts[14] = {0};
+  for (int i=0; i < n; i++) {
+    cnts[hand->cards[i]->value]++;
+  }
+  for (int i=0; i < n; i++) {
+    ans[i] =  cnts[hand->cards[i]->value];
+  }
+  return ans;
+}
 
 // We provide the below functions.  You do NOT need to modify them
 // In fact, you should not modify them!
