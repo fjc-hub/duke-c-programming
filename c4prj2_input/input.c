@@ -38,7 +38,7 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc) {
             // ans->cards[ans->n_cards] = tmp;
             // ans->n_cards++;
             //= The above equals to the below
-            add_card_to(ans->cards, card);
+            add_card_to(ans, card);
         }
     }
     if (ans->n_cards < 5) {
