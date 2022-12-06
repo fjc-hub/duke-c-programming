@@ -1,28 +1,19 @@
-Grading at Tue 06 Dec 2022 12:03:08 PM UTC
+Grading at Tue 06 Dec 2022 12:21:50 PM UTC
 Compiling cards.c -> cards.o
 Compiling deck.c -> deck.o
 Compiling input.c -> input.o
-Compiling future.c -> future.o
-Linking input.o, future.o deck.o, cards.o, and our tester
-Testing with input file with 
- o 1 hand
- o No unknown/future cards
-Your file matched the expected output
-Test case passed
-Testing with input file with 
- o Many hands
- o No unknown/future cards
-Your file matched the expected output
-Test case passed
-Testing with input file with 
- o Many hands
- o 1 unknown/future cards per hand
-Your file matched the expected output
-Test case passed
-Testing with input file with 
- o Many hands
- o Many unknown/future cards per hand
-Your file matched the expected output
-Test case passed
+input.c: In function ‘hand_from_string’:
+input.c:41:28: error: passing argument 1 of ‘add_card_to’ from incompatible pointer type [-Werror=incompatible-pointer-types]
+   41 |             add_card_to(ans->cards, card);
+      |                         ~~~^~~~~~~
+      |                            |
+      |                            card_t ** {aka struct card_tag **}
+In file included from input.h:4,
+                 from input.c:6:
+deck.h:17:27: note: expected ‘deck_t *’ {aka ‘struct deck_tag *’} but argument is of type ‘card_t **’ {aka ‘struct card_tag **’}
+   17 | void add_card_to(deck_t * deck, card_t c);
+      |                  ~~~~~~~~~^~~~
+cc1: all warnings being treated as errors
+Compilation of input.c failed
 
-Overall Grade: A
+Overall Grade: F
