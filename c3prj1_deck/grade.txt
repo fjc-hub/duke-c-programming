@@ -1,14 +1,18 @@
-Grading at Sun 20 Nov 2022 03:18:25 PM UTC
+Grading at Tue 06 Dec 2022 06:57:29 AM UTC
 Compiling deck.c
 Compiling cards.c
 Linking cards.o deck.o deck-c4.o and the grader's .o file
-Checking the output of all the functions other than shuffle
-Your file matched the expected output
- - Those functions seem to work!
-Checking your shuffle results with a 6 card hand...
-  Least common hand: 0.131050%
-  Most  common hand: 0.149300%
-  Perfectly even is: 0.138888%
- Excellent!
+/usr/bin/ld: deck-c4.o: in function `make_deck_exclude':
+deck-c4.c:(.text+0x7f): multiple definition of `make_deck_exclude'; deck.o:deck.c:(.text+0x2d0): first defined here
+/usr/bin/ld: deck-c4.o: in function `add_card_to':
+deck-c4.c:(.text+0x1d0): multiple definition of `add_card_to'; deck.o:deck.c:(.text+0x210): first defined here
+/usr/bin/ld: deck-c4.o: in function `add_empty_card':
+deck-c4.c:(.text+0x29c): multiple definition of `add_empty_card'; deck.o:deck.c:(.text+0x260): first defined here
+/usr/bin/ld: deck-c4.o: in function `free_deck':
+deck-c4.c:(.text+0x384): multiple definition of `free_deck'; deck.o:deck.c:(.text+0x4c0): first defined here
+/usr/bin/ld: deck-c4.o: in function `build_remaining_deck':
+deck-c4.c:(.text+0x3fb): multiple definition of `build_remaining_deck'; deck.o:deck.c:(.text+0x3d0): first defined here
+collect2: error: ld returned 1 exit status
+Could not link your code!
 
-Overall Grade: A
+Overall Grade: FAILED
