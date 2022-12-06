@@ -1,38 +1,51 @@
-#include<string.h>
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 #include <assert.h>
-#include "deck.h"
-#include "cards.h"
-#include "future.h"
-deck_t * hand_from_string(const char * str, future_cards_t * fc){
-  deck_t* deck=malloc(sizeof(*deck));
-  deck->cards = NULL;
-  deck->n_cards=0;
-  for(int i=0;i<strlen(str);i++){
-    if((str[i] == '\n')||(str[i] == ' '))continue;
-    else{
-      if(str[i] == '?'){
-        i++;
-        char num[strlen(str)];
-        int n=0;
-        while(!((str[i] == '\n')||(str[i] == ' '))) {
-          num[n]=str[i];
-          i++;n++;}
-        num[n]='\0';
-        add_future_card(fc,atoi(num),add_empty_card(deck)) ;
+#include "input.h"
 
-      }
-      else{
-        card_t x = card_from_letters(str[i],str[i+1]);
-        add_card_to(deck,x);
-        i++;}
+deck_t * hand_from_string(const char * str, future_cards_t * fc) {
+    deck_t *ans = malloc(sizeof(*ans));
+    ans->cards = NULL;
+    ans->n_cards = 0;
+    for (int i=0, len=strlen(str); i < len; ) {
+        if (str[i] == '\n' || str[i] == ' ') {
+            i++;
+            continue;
+        }
+        assert(i+1 < len);
+        char v = str[i++], s = str[i];
+        if (v == '?') {
+            assert(isdigit(s));
+            // Observe the digit after '?' may >= 10 !!!
+            size_t sz = 0;
+            char num[len];
+            for (; isdigit(str[i]); i++, sz++) {
+                num[sz] = str[i];
+            }
+            num[sz] = '\0';
+            card_t *ptr = add_empty_card(ans);
+            add_future_card(fc, atoi(num), ptr);
+        } else {
+            i++;
+            assert(str[i] == ' ' || str[i] == '\n');
+            card_t card = card_from_letters(v, s);
+            // card_t *tmp = malloc(sizeof(*tmp));
+            // tmp->value = card.value;
+            // tmp->suit = card.suit;
+            // ans->cards = realloc(ans->cards, (ans->n_cards+1)*sizeof(*(ans->cards)));
+            // ans->cards[ans->n_cards] = tmp;
+            // ans->n_cards++;
+            //= The above equals to the below
+            add_card_to(ans->cards, card);
+        }
     }
-  }
-  if (deck->n_cards < 5 ){
-    return NULL;
-    fprintf(stderr,"asas");}
-  return deck;
+    if (ans->n_cards < 5) {
+        perror("there are fewer than 5 cards\n");
+        exit(-1);
+    }
+    return ans;
 }
 
 deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc) {
@@ -43,9 +56,6 @@ deck_t ** read_input(FILE * f, size_t * n_hands, future_cards_t * fc) {
     for (; getline(&buf, &sz, f) >= 0; ) {
         deck_t *deck = hand_from_string(buf, fc);
         ans = realloc(ans, (n+1)*sizeof(*ans));
-        if (ans == NULL) {
-            continue;
-        }
         ans[n] = deck;
         n++;
     }
