@@ -17,6 +17,9 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc) {
         }
         assert(i+1 < len);
         char v = str[i++], s = str[i++];
+        if (!(i >= len || str[i] == '\0' || str[i] == '\n' || str[i] == ' ')) {
+            printf("%d\n", (int)str[i]);
+        }
         assert(i >= len || str[i] == '\0' || str[i] == '\n' || str[i] == ' ');
         if (v == '?') {
             assert(isdigit(s));
