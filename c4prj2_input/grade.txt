@@ -1,48 +1,30 @@
-Grading at Tue 06 Dec 2022 09:37:04 AM UTC
+Grading at Tue 06 Dec 2022 09:46:36 AM UTC
 Compiling cards.c -> cards.o
 Compiling deck.c -> deck.o
 Compiling input.c -> input.o
-Compiling future.c -> future.o
-Linking input.o, future.o deck.o, cards.o, and our tester
-Testing with input file with 
- o 1 hand
- o No unknown/future cards
-Valgrind reported errors:
-==229== Memcheck, a memory error detector
-==229== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==229== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==229== Command: ./tester hands.txt draw.txt
-==229== Parent PID: 228
-==229== 
-Testing with input file with 
- o Many hands
- o No unknown/future cards
-Valgrind reported errors:
-==234== Memcheck, a memory error detector
-==234== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==234== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==234== Command: ./tester hands.txt draw.txt
-==234== Parent PID: 233
-==234== 
-Testing with input file with 
- o Many hands
- o 1 unknown/future cards per hand
-Valgrind reported errors:
-==240== Memcheck, a memory error detector
-==240== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==240== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==240== Command: ./tester h.txt d.txt
-==240== Parent PID: 239
-==240== 
-Testing with input file with 
- o Many hands
- o Many unknown/future cards per hand
-Valgrind reported errors:
-==246== Memcheck, a memory error detector
-==246== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==246== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==246== Command: ./tester i1 i2
-==246== Parent PID: 245
-==246== 
+input.c: In function ‘hand_from_string’:
+input.c:10:23: error: implicit declaration of function ‘strlen’ [-Werror=implicit-function-declaration]
+   10 |     for (int i=0, len=strlen(str); i < len; cnt++) {
+      |                       ^~~~~~
+input.c:10:23: error: incompatible implicit declaration of built-in function ‘strlen’ [-Werror]
+input.c:4:1: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+    3 | #include "input.h"
+  +++ |+#include <string.h>
+    4 | 
+input.c:10:5: error: declaration of non-variable ‘strlen’ in ‘for’ loop initial declaration
+   10 |     for (int i=0, len=strlen(str); i < len; cnt++) {
+      |     ^~~
+input.c:15:9: error: implicit declaration of function ‘assert’ [-Werror=implicit-function-declaration]
+   15 |         assert(i+1 < len);
+      |         ^~~~~~
+input.c:4:1: note: ‘assert’ is defined in header ‘<assert.h>’; did you forget to ‘#include <assert.h>’?
+    3 | #include "input.h"
+  +++ |+#include <assert.h>
+    4 | 
+input.c:19:20: error: implicit declaration of function ‘isdigit’ [-Werror=implicit-function-declaration]
+   19 |             assert(isdigit(s));
+      |                    ^~~~~~~
+cc1: all warnings being treated as errors
+Compilation of input.c failed
 
 Overall Grade: F
