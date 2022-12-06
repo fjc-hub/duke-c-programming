@@ -58,7 +58,7 @@ void add_card_to(deck_t * deck, card_t c) {
   card->value = c.value;
   card->suit = c.suit;
   deck->cards = realloc(deck->cards, (deck->n_cards + 1)*sizeof(*(deck->cards)));
-  deck->cards[deck->n_cards] = &card;
+  deck->cards[deck->n_cards] = card;
   deck->n_cards++;
 }
 
@@ -105,3 +105,4 @@ void free_deck(deck_t * deck) {
   free(deck->cards);
   free(deck);
 }
+
