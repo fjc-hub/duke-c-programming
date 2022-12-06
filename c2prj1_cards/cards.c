@@ -41,9 +41,8 @@ char value_letter(card_t c) {
   case 14:
     return 'A';
   default:
-    assert(0); // fail fast
+    return '?';
   }
-  return '\0';
 }
 
 
@@ -59,9 +58,8 @@ char suit_letter(card_t c) {
   case CLUBS:
     return 'c';
   default:
-    assert(0); // fail fast
+    return 'N';
   }
-  return '\0';
 }
 
 void print_card(card_t c) {
