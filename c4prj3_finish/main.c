@@ -83,7 +83,10 @@ int main(int argc, char ** argv) {
   }
   free(decks);
   free_deck(remain);
-  free_deck(fc->decks);
+  for(int o=fc->n_decks-1 ;o>=0;o--){
+    if(fc->decks[o].n_cards != 0) free(fc->decks[o].cards);
+  }
+  free(fc->decks);
   free(fc);
   return EXIT_SUCCESS;
 }
