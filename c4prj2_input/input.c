@@ -1,5 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <assert.h>
 #include "input.h"
 
 deck_t * hand_from_string(const char * str, future_cards_t * fc) {
