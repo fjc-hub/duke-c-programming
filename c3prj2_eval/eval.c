@@ -272,7 +272,10 @@ int compare_hands(deck_t * hand1, deck_t * hand2) {
 unsigned * get_match_counts(deck_t * hand) {
   size_t n = hand->n_cards;
   unsigned *ans = malloc(n*sizeof(*ans));
-  size_t cnts[14] = {0};
+  size_t cnts[14];
+  for (int i=0; i < 14; i++) {
+    cnts[i] = 0;
+  }
   for (int i=0; i < n; i++) {
     cnts[hand->cards[i]->value]++;
   }
@@ -415,4 +418,5 @@ hand_eval_t evaluate_hand(deck_t * hand) {
   }
   return build_hand_from_match(hand, 0, NOTHING, 0);
 }
+
 
