@@ -1,0 +1,10 @@
+Grading at Tue 06 Dec 2022 06:53:59 AM UTC
+Compiling deck.c -> deck.o
+deck.c: In function ‘build_remaining_deck’:
+deck.c:87:21: error: initialization of ‘card_t *’ {aka ‘struct card_tag *’} from incompatible pointer type ‘card_t **’ {aka ‘struct card_tag **’} [-Werror=incompatible-pointer-types]
+   87 |     card_t *cards = hands[i]->cards;
+      |                     ^~~~~
+cc1: all warnings being treated as errors
+Compilation of deck.c failed
+
+Overall Grade: F
