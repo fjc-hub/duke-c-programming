@@ -11,7 +11,7 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc) {
     ans->cards = NULL;
     ans->n_cards = 0;
     for (int i=0, len=strlen(str); i < len; ) {
-        if (str[i] == ' ') {
+        if (str[i] == '\n' || str[i] == ' ') {
             i++;
             continue;
         }
