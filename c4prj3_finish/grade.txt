@@ -1,4 +1,4 @@
-Grading at Tue 06 Dec 2022 05:49:49 PM UTC
+Grading at Tue 06 Dec 2022 05:51:58 PM UTC
 Running 'make clean' to do a clean build of your project
 rm -rf *.o poker *~
 Running 'make poker OTHERFLAGS=-O3' to build your project
@@ -8,21 +8,63 @@ gcc -Wall -Werror -ggdb3 -std=gnu99 -pedantic -O3 -c eval.c
 gcc -Wall -Werror -ggdb3 -std=gnu99 -pedantic -O3 -c future.c
 gcc -Wall -Werror -ggdb3 -std=gnu99 -pedantic -O3 -c input.c
 gcc -Wall -Werror -ggdb3 -std=gnu99 -pedantic -O3 -c main.c
-main.c: In function ‘main’:
-main.c:74:20: error: format ‘%zu’ expects argument of type ‘size_t’, but argument 2 has type ‘int’ [-Werror=format=]
-   74 |     printf("Hand %zu won %u / %u times (%.2f%%)\n", i, winCnts[i], num_trials, (((float)winCnts[i])/num_trials)*100);
-      |                  ~~^                                ~
-      |                    |                                |
-      |                    long unsigned int                int
-      |                  %u
-main.c:74:32: error: format ‘%u’ expects argument of type ‘unsigned int’, but argument 4 has type ‘size_t’ {aka ‘long unsigned int’} [-Werror=format=]
-   74 |     printf("Hand %zu won %u / %u times (%.2f%%)\n", i, winCnts[i], num_trials, (((float)winCnts[i])/num_trials)*100);
-      |                               ~^                                   ~~~~~~~~~~
-      |                                |                                   |
-      |                                unsigned int                        size_t {aka long unsigned int}
-      |                               %lu
-cc1: all warnings being treated as errors
-make: *** [Makefile:6: main.o] Error 1
-make failed
+gcc -o poker -Wall -Werror -ggdb3 -std=gnu99 -pedantic -O3 cards.o deck.o eval.o future.o input.o main.o
+ - Starting with some Texas Hold'em hands
+Running a simulation with 20000 draws for 2 hands...
+Could not find the win percent in your output
+Could not find the win percent in your output
+You dont seem to have the right total draws.
+Yours sum to 0 but I expected 20000
+Running a simulation with 25000 draws for 3 hands...
+Could not find the win percent in your output
+Could not find the win percent in your output
+Could not find the win percent in your output
+You dont seem to have the right total draws.
+Yours sum to 0 but I expected 25000
+Running a simulation with 25000 draws for 3 hands...
+Could not find the win percent in your output
+Could not find the win percent in your output
+Could not find the win percent in your output
+You dont seem to have the right total draws.
+Yours sum to 0 but I expected 25000
+Running a simulation with 25000 draws for 2 hands...
+Could not find the win percent in your output
+Could not find the win percent in your output
+You dont seem to have the right total draws.
+Yours sum to 0 but I expected 25000
+Running a simulation with 80000 draws for 4 hands...
+Could not find the win percent in your output
+Could not find the win percent in your output
+Could not find the win percent in your output
+Could not find the win percent in your output
+You dont seem to have the right total draws.
+Yours sum to 0 but I expected 80000
+Running a simulation with 30000 draws for 2 hands...
+Could not find the win percent in your output
+Could not find the win percent in your output
+You dont seem to have the right total draws.
+Yours sum to 0 but I expected 30000
+ - Next, few Seven Card Stud hands
+Running a simulation with 30000 draws for 2 hands...
+Could not find the win percent in your output
+Could not find the win percent in your output
+You dont seem to have the right total draws.
+Yours sum to 0 but I expected 30000
+Running a simulation with 40000 draws for 3 hands...
+Could not find the win percent in your output
+Could not find the win percent in your output
+Could not find the win percent in your output
+You dont seem to have the right total draws.
+Yours sum to 0 but I expected 40000
+ - Then one from a completely made up poker variant
+Running a simulation with 100000 draws for 6 hands...
+Could not find the win percent in your output
+Could not find the win percent in your output
+Could not find the win percent in your output
+Could not find the win percent in your output
+Could not find the win percent in your output
+Could not find the win percent in your output
+You dont seem to have the right total draws.
+Yours sum to 0 but I expected 100000
 
 Overall Grade: F
