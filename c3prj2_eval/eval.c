@@ -419,3 +419,4 @@ hand_eval_t evaluate_hand(deck_t * hand) {
   return build_hand_from_match(hand, 0, NOTHING, 0);
 }
 
+

@@ -105,3 +105,4 @@ void free_deck(deck_t * deck) {
   free(deck->cards);
   free(deck);
 }
+
