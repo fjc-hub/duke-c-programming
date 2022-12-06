@@ -10,14 +10,14 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc) {
     deck_t *ans = malloc(sizeof(*ans));
     ans->cards = NULL;
     ans->n_cards = 0;
-    for (int i=0, len=strlen(str); i < len; cnt++) {
+    for (int i=0, len=strlen(str); i < len; ) {
         if (str[i] == ' ') {
             i++;
             continue;
         }
         assert(i+1 < len);
         char v = str[i++], s = str[i++];
-        assert(i == len || str[i] == ' ');
+        assert(i >= len || str[i] == '\0' || str[i] == '\n' || str[i] == ' ');
         if (v == '?') {
             assert(isdigit(s));
             card_t *ptr = add_empty_card(ans);
@@ -31,6 +31,7 @@ deck_t * hand_from_string(const char * str, future_cards_t * fc) {
             ans->cards[ans->n_cards] = tmp;
             ans->n_cards++;
         }
+        cnt++;
     }
     if (cnt < 5) {
         perror("there are fewer than 5 cards\n");
