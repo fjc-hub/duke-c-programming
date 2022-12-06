@@ -1,4 +1,4 @@
-Grading at Tue 06 Dec 2022 05:51:58 PM UTC
+Grading at Tue 06 Dec 2022 06:07:47 PM UTC
 Running 'make clean' to do a clean build of your project
 rm -rf *.o poker *~
 Running 'make poker OTHERFLAGS=-O3' to build your project
@@ -11,60 +11,51 @@ gcc -Wall -Werror -ggdb3 -std=gnu99 -pedantic -O3 -c main.c
 gcc -o poker -Wall -Werror -ggdb3 -std=gnu99 -pedantic -O3 cards.o deck.o eval.o future.o input.o main.o
  - Starting with some Texas Hold'em hands
 Running a simulation with 20000 draws for 2 hands...
-Could not find the win percent in your output
-Could not find the win percent in your output
-You dont seem to have the right total draws.
-Yours sum to 0 but I expected 20000
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Test case passed!    
 Running a simulation with 25000 draws for 3 hands...
-Could not find the win percent in your output
-Could not find the win percent in your output
-Could not find the win percent in your output
-You dont seem to have the right total draws.
-Yours sum to 0 but I expected 25000
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Hand 2 was close enough to our answer
+    Test case passed!    
 Running a simulation with 25000 draws for 3 hands...
-Could not find the win percent in your output
-Could not find the win percent in your output
-Could not find the win percent in your output
-You dont seem to have the right total draws.
-Yours sum to 0 but I expected 25000
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Hand 2 was close enough to our answer
+    Test case passed!    
 Running a simulation with 25000 draws for 2 hands...
-Could not find the win percent in your output
-Could not find the win percent in your output
-You dont seem to have the right total draws.
-Yours sum to 0 but I expected 25000
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Test case passed!    
 Running a simulation with 80000 draws for 4 hands...
-Could not find the win percent in your output
-Could not find the win percent in your output
-Could not find the win percent in your output
-Could not find the win percent in your output
-You dont seem to have the right total draws.
-Yours sum to 0 but I expected 80000
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Hand 2 was close enough to our answer
+    Hand 3 was close enough to our answer
+    Test case passed!    
 Running a simulation with 30000 draws for 2 hands...
-Could not find the win percent in your output
-Could not find the win percent in your output
-You dont seem to have the right total draws.
-Yours sum to 0 but I expected 30000
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Test case passed!    
  - Next, few Seven Card Stud hands
 Running a simulation with 30000 draws for 2 hands...
-Could not find the win percent in your output
-Could not find the win percent in your output
-You dont seem to have the right total draws.
-Yours sum to 0 but I expected 30000
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Test case passed!    
 Running a simulation with 40000 draws for 3 hands...
-Could not find the win percent in your output
-Could not find the win percent in your output
-Could not find the win percent in your output
-You dont seem to have the right total draws.
-Yours sum to 0 but I expected 40000
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Hand 2 was close enough to our answer
+    Test case passed!    
  - Then one from a completely made up poker variant
 Running a simulation with 100000 draws for 6 hands...
-Could not find the win percent in your output
-Could not find the win percent in your output
-Could not find the win percent in your output
-Could not find the win percent in your output
-Could not find the win percent in your output
-Could not find the win percent in your output
-You dont seem to have the right total draws.
-Yours sum to 0 but I expected 100000
+    Hand 0 was close enough to our answer
+    Hand 1 was close enough to our answer
+    Hand 2 was close enough to our answer
+    Hand 3 was close enough to our answer
+    Hand 4 was close enough to our answer
+    Hand 5 was close enough to our answer
+    Test case passed!    
 
-Overall Grade: F
+Overall Grade: A
