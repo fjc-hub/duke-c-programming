@@ -1,4 +1,4 @@
-Grading at Tue 06 Dec 2022 11:51:26 AM UTC
+Grading at Tue 06 Dec 2022 11:53:40 AM UTC
 Compiling cards.c -> cards.o
 Compiling deck.c -> deck.o
 Compiling input.c -> input.o
@@ -22,7 +22,8 @@ Test case passed
 Testing with input file with 
  o Many hands
  o Many unknown/future cards per hand
-Your file matched the expected output
-Test case passed
+Line_1_did_not_match
+Your file did not match the expected ouput
+Test case failed
 
-Overall Grade: A
+Overall Grade: B
