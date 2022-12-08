@@ -99,6 +99,9 @@ deck_t * build_remaining_deck(deck_t ** hands, size_t n_hands) {
 }
 
 void free_deck(deck_t * deck) {
+  if (deck == NULL) {  // avoid subsequent NULL pointer exception
+    return ; 
+  }
   for (int i=0, l=deck->n_cards; i < l; i++) {
     free(deck->cards[i]);
   }
